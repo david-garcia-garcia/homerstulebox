@@ -1,0 +1,17 @@
+{
+  "name": "david/homerstulebox",
+  "description": "PHP Toolbox (Homer's Tulebox)",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David García García",
+      "email": "deivid.garcia.garcia@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "david\\homerstulebox": "src/"
+    }
+  }
+}
