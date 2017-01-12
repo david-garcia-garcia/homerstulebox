@@ -1,5 +1,5 @@
 {
-  "name": "david/homerstulebox",
+  "name": "sabentis/homerstulebox",
   "description": "PHP Toolbox (Homer's Tulebox)",
   "type": "library",
   "license": "MIT",
@@ -11,7 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "david\\homerstulebox": "src/"
+      "sabentis\\homerstulebox": "src/"
     }
   }
 }
