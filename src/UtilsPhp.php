@@ -1,16 +1,11 @@
 <?php
 
+namespace Sabentis\HomersTulebox;
+
 /**
  * Php language level utilities.
  */
 class UtilsPhp {
-
-  /**
-   * Get an instance of UtilsPhp.
-   */
-  public function __construct() {
-    
-  }
 
   /**
    * Create a static method call, and make sure it is valid.
@@ -20,7 +15,7 @@ class UtilsPhp {
    *
    * @return string
    */
-  public function callbackStatic(string $class, string $method) {
+  public static function callbackStatic(string $class, string $method) {
     $class = new \ReflectionClass($class);
     $method = $class->getMethod($method);
     $result = $class->name . '::' . $method->name;
@@ -32,8 +27,10 @@ class UtilsPhp {
    *
    * @param mixed $instance
    * @param string $method
+   * 
+   * @return callable
    */
-  public function callbackInstance($instance, string $method) {
+  public static function callbackInstance($instance, string $method) {
     if (is_scalar($instance)) {
       throw new \InvalidArgumentException('Cannot user scalars as callback instances.');
     }
