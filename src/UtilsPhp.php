@@ -15,7 +15,7 @@ class UtilsPhp {
    *
    * @return string
    */
-  public static function callbackStatic(string $class, string $method) {
+  public static function callbackStatic(string $class, string $method): callable {
     $class = new \ReflectionClass($class);
     $method = $class->getMethod($method);
     $result = $class->name . '::' . $method->name;
@@ -27,18 +27,17 @@ class UtilsPhp {
    *
    * @param mixed $instance
    * @param string $method
-   * 
+   *
    * @return callable
    */
-  public static function callbackInstance($instance, string $method) {
+  public static function callbackInstance($instance, string $method) : callable {
     if (is_scalar($instance)) {
       throw new \InvalidArgumentException('Cannot user scalars as callback instances.');
     }
-    $class = new \ReflectionClass($instance);
-    if ($method = $class->getMethod($method)) {
+    if (method_exists($instance, $method)) {
       return [$instance, $method];
     }
-    throw new \InvalidArgumentException('Invalid callback method for type ' . $class->getName());
+    throw new \InvalidArgumentException('Invalid callback method for type: ' . get_class($instance));
   }
 
 }
